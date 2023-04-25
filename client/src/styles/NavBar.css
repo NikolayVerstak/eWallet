@@ -1,0 +1,368 @@
+/* ----- STYLING OF NAVIGATION COMPONENT  ----- */
+
+.navbar {
+    width: 100vw;
+    min-width: 350px;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    height: 58px;
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+.navbar-nav a {
+    font-size: 20px;
+}
+
+.navbar .container-fluid {
+    background-color: rgba(33, 37, 41);
+}
+
+
+/* -----
+Buttons Settings
+----- */
+/* Brand Name */
+.project-name {
+    font-size: 32px;
+    line-height: 32px;
+    margin: 0;
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 12px;
+}
+
+/* Page's Button */
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+#responsive-navbar-nav :is(.home, #nav-dropdown-dark) {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-radius: 4px;
+}
+
+#responsive-navbar-nav {
+    text-align: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+#responsive-navbar-nav :is(a:hover) {
+    background-color: rgba(128, 128, 128, 0.3) !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.nav-item.dropdown:has(a.active) #nav-dropdown-dark {
+    background-color: rgba(128, 128, 128, 0.3);
+    color: white;
+}
+
+#responsive-navbar-nav.collapse .home,
+#responsive-navbar-nav.collapse #nav-dropdown-dark {
+    margin-right: 2px;
+}
+
+.dropdown-toggle::after {
+    margin-left: 10px;
+}
+
+/* ----- 
+Dropdown Settings 
+----- */
+/* ----- Exchange Dropdown ----- */
+.navbar-nav .dropdown-menu {
+    width: 100%;
+    padding: 4px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: inherit;
+}
+
+.navbar-nav .dropdown-menu p {
+    text-align: center;
+    padding: 8px 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 14px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.navbar-nav a.dropdown-toggle.show::after {
+    transform: rotate(180deg);
+}
+
+.exchange-rate p:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+/* ----- Add a new item, List of All items Dropdown Settings ----- */
+:is(.create-new, .show-list) .dropdown-menu {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+:is(.create-new, .show-list) .dropdown-menu a {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.55) !important;
+}
+
+:is(.create-new, .show-list) .dropdown-menu a.active {
+    background-color: rgba(128, 128, 128, 0.3);
+    color: white !important;
+}
+
+:is(.create-new, .show-list) .dropdown-menu a:not(:last-child) {
+    margin-bottom: 2px;
+}
+
+
+/* ----- 
+Google Block
+----- */
+.google-button .user {
+    position: absolute;
+    top: 5px;
+    right: 0px;
+}
+
+/* ----- Google Dropdown for User's information ----- */
+.user #dropdown-basic {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 50%;
+}
+
+/* dropdown arrow */
+.user #dropdown-basic::after {
+    display: none;
+}
+
+/* user's dropdown div */
+.user .dropdown-menu {
+    position: absolute;
+    right: 0;
+    left: auto;
+    top: 100%;
+    padding: 8px 4px;
+    margin-top: 4px;
+    background-color: #343a40;
+    width: max-content;
+    z-index: 20;
+}
+
+/* user icon */
+.user-logo {
+    width: 36px;
+}
+
+/* dropdown paragraph */
+.user .dropdown-menu .user-info {
+    color: #dee2e6;
+    text-align: left;
+    padding: 8px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 14px;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* user's name */
+.user .dropdown-menu .user-info:first-child {
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* line in dropdown before Sign Out button */
+.user .dropdown-menu .user-info:nth-child(4) {
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* user's money holders */
+.user .dropdown-menu .user-info:not(:first-child) {
+    display: grid;
+    grid-template-columns: 70px 10px auto;
+    gap: 8px;
+    letter-spacing: 0.5px;
+}
+
+
+/* ----- Google Button ----- */
+.google-button {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    display: flex;
+}
+
+.google-button .btn-danger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.google-button .btn-danger span {
+    font-size: 18px;
+    padding-bottom: 2px;
+}
+
+.google-button svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+}
+
+/* Sign Out button */
+.google-button .sign-out {
+    height: 36px;
+    padding: 6px 8px;
+    margin: 8px 0 2px 0;
+    position: relative;
+    animation: leftToRight 3s linear infinite;
+}
+
+.google-button .sign-out:hover {
+    animation-play-state: paused;
+}
+
+/* Sign In button */
+.google-button .sign-in {
+    height: 42px;
+    padding: 6px 12px 6px 8px;
+    animation: wiggle 2s linear infinite;
+}
+
+.google-button :is(.sign-in:hover, .sign-in:active) {
+    animation: none;
+}
+
+/* animation of Sign In button */
+@keyframes wiggle {
+
+    0%,
+    5% {
+        transform: rotateZ(0);
+    }
+
+    15% {
+        transform: rotateZ(-7deg);
+    }
+
+    20% {
+        transform: rotateZ(5deg);
+    }
+
+    25% {
+        transform: rotateZ(-5deg);
+    }
+
+    30% {
+        transform: rotateZ(4deg);
+    }
+
+    35% {
+        transform: rotateZ(-2deg);
+    }
+
+    40%,
+    100% {
+        transform: rotateZ(0);
+    }
+}
+
+/* animation of Sign Out button */
+@keyframes leftToRight {
+
+    0%,
+    100% {
+        left: 4px;
+    }
+
+    50% {
+        /* buttom width is 96px and margin-right is 8px */
+        left: calc(100% - 4px - 96px);
+    }
+}
+
+
+/* --------------------------------------- For TABLET --------------------------------------- */
+@media (max-width: 767px) {
+
+    /* Button To Expand NavBar */
+    button.navbar-toggler {
+        padding: 4px 8px;
+        box-sizing: border-box;
+        height: 42px;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 1px;
+    }
+
+    /* Page's Buttons */
+    .nav-links {
+        margin-left: 0;
+        margin-right: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* google Button will be smaller, so cancel margin from inline style */
+    .navbar:has(.sign-in) .nav-links {
+        margin: 0 90px 0 80px !important;
+    }
+
+    .nav-link {
+        height: 46px;
+    }
+
+    #responsive-navbar-nav.collapse :is(.home, #nav-dropdown-dark) {
+        border-radius: 6px;
+        margin-right: 0;
+    }
+
+    #responsive-navbar-nav :is(.home, .create-new, .show-list) {
+        margin-bottom: 2px;
+    }
+
+    .navbar-nav {
+        margin: 8px 0;
+    }
+
+    .navbar-nav a#nav-dropdown-dark {
+        padding-left: 14px
+    }
+
+    .navbar-nav .dropdown-menu {
+        width: 100%;
+        transform: translateX(0);
+    }
+}
+
+
+/* --------------------------------------- For MOBILE --------------------------------------- */
+@media screen and (max-width: 575px) {
+
+    .navbar .nav-links {
+        margin: 0 !important;
+    }
+}

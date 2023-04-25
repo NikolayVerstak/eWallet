@@ -1,0 +1,200 @@
+/* ----- STYLING OF MODAL WINDOW ----- */
+
+.modal {
+    /* colors for add-edit modal window */
+    --modal-color: rgba(120, 221, 159, 0.7);
+    /* and delete popup */
+    --alert-color: rgba(255, 216, 0, 0.7);
+}
+
+/* -----
+Header div
+----- */
+.modal-header {
+    background-color: var(--modal-color);
+    height: 100px;
+    position: relative;
+}
+
+.modal-header.delete {
+    background-color: var(--alert-color);
+}
+
+/* headev success tick icon */
+.modal-header img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+}
+
+/* headev сlose-cross icon */
+.modal-header .btn-close {
+    position: absolute;
+    top: 15%;
+    right: 4%;
+}
+
+/* -----
+Content div
+----- */
+.modal-body {
+    text-align: center;
+    font-size: 18px;
+}
+
+/* title */
+.modal-body .modal-title.h4 {
+    font-family: var(--font-montserrat);
+    font-size: 26px;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    color: var(--modal-color);
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.modal-body .delete.modal-title.h4 {
+    color: var(--alert-color);
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* highligted item name */
+.modal-body span {
+    font-weight: 700;
+    color: rgba(108, 117, 125);
+    text-transform: uppercase;
+}
+
+
+/* -----
+Buttons
+----- */
+.modal-footer {
+    justify-content: center;
+}
+
+.modal-footer button.btn {
+    font-size: 18px;
+    width: 120px;
+}
+
+/* Close buton and Go Home hover button */
+.modal-footer .btn-secondary:hover,
+.modal-footer .btn-primary {
+    background-color: rgba(108, 117, 125, 0.7);
+    border-color: rgba(108, 117, 125, 0.5);
+    color: white;
+    font-weight: 500;
+}
+
+.modal-footer .btn-secondary {
+    letter-spacing: 0.05rem;
+}
+
+/* Go Home button and Close hover button */
+.modal-footer .btn-secondary,
+.modal-footer .btn-primary:hover {
+    background-color: rgba(108, 117, 125, 0.15);
+    border-color: rgba(108, 117, 125, 0.25);
+    color: rgba(108, 117, 125, 0.7);
+    font-weight: 700;
+}
+
+/* Change Bootstrap default position */
+@media (min-width: 576px) {
+    .modal {
+        margin-top: 34px !important;
+    }
+}
+
+
+/* -----
+Processing pre-Modal Message
+----- */
+.processing-premodal {
+    height: 274px;
+    --process-loader-width: 250px;
+    --process-ball-width: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    gap: 20px;
+    position: relative;
+}
+
+.processing-premodal p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Text "Processing..." */
+.processing-text {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    width: auto;
+    animation: processing 1s infinite alternate;
+    color: rgb(90, 166, 119) !important;
+}
+
+/* animation to change opacity of each part of the text "Pro", "ce", "ss", "in", "g..." */
+@keyframes processing {
+    0% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Green wave at the top of the PreModal to display loading process */
+.processing-wave-wrapper,
+.processing-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+}
+
+.processing-wave-wrapper {
+    overflow: hidden;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+/* background */
+.processing-wave {
+    background-image: url(./../images/processing-wave.svg);
+    background-repeat: repeat no-repeat;
+    background-size: 500px auto;
+    padding: 0;
+    margin: 0;
+    animation: wave 8s linear infinite;
+}
+
+/* animation to move wave from left to right, from bottom to top */
+@keyframes wave {
+    0% {
+        background-position: 500px top;
+        transform: translateY(0px);
+
+    }
+
+    50% {
+        background-position: 250px top;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        background-position: 0 top;
+        transform: translateY(0px);
+    }
+
+}

@@ -1,0 +1,193 @@
+/* ----- STYLING OF ITEM LIST COMPONENT  ----- */
+.list-wrapper {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Main row */
+.list-form-and-view {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    max-width: 1300px;
+    min-height: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 400px));
+    grid-auto-rows: min-content;
+    grid-gap: 30px;
+
+    /* icons edit and delete */
+    --icon-size: 20px;
+}
+
+/* ----- Each ITEM settings ----- */
+.list-form-and-view :is(#wallets-list, #cards-list, #savings-list) {
+    height: 300px;
+    width: 400px;
+    max-width: 400px;
+    min-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* card item */
+.list-form-and-view #cards-list {
+    padding: 16px 8px 0;
+}
+
+/* ----- Each item IMAGE settings ----- */
+:is(#wallets-list, #cards-list, #savings-list) .ewallet-img {
+    scale: 1.2;
+    margin: 0;
+}
+
+/* Credit card image */
+#wallets-list .cards.ewallet-img {
+    scale: 1.1;
+}
+
+
+/* -----
+Buttons Edit and Delete
+----- */
+.edit-btn {
+    background: url('../images/edit-icon.png');
+    right: 40px;
+}
+
+.delete-btn {
+    background: url('../images/delete-icon-grey.png');
+    right: 16px;
+}
+
+.edit-btn,
+.delete-btn {
+    background-size: cover;
+    position: absolute;
+    top: 16px;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    cursor: pointer;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    scale: 1.2;
+}
+
+
+/* -----
+Empty Items
+----- */
+.list-form-and-view :is(#wallets-list, #cards-list, #savings-list).empty {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 16px 12px;
+}
+
+/* title */
+.empty h4 {
+    padding: 0;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.55);
+    text-shadow: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    word-spacing: 4px;
+}
+
+/* cross button */
+.empty .add-btn:hover {
+    scale: 1.1;
+}
+
+
+/* -------------------------------- FOR MOBILE / TABLET -------------------------------- */
+@media screen and (max-width: 786px) {
+
+    /* Main row */
+    .list-form-and-view {
+        grid-template-columns: repeat(auto-fit, minmax(auto, 340px));
+        grid-gap: 14px;
+    }
+
+    /* ----- Each ITEM settings ----- */
+    .list-form-and-view :is(#wallets-list, #cards-list, #savings-list) {
+        height: 280px;
+        width: 340px;
+        max-width: 340px;
+        min-width: 340px;
+    }
+
+    /* wallet item */
+    .list-form-and-view #wallets-list {
+        padding: 12px 8px;
+    }
+
+    /* card item */
+    .list-form-and-view #cards-list {
+        height: 260px;
+    }
+
+    /* ----- Each item IMAGE settings ----- */
+    :is(#cards-list, #savings-list) .ewallet-img {
+        scale: 1.1;
+    }
+
+    /* wallet image */
+    #wallets-list .ewallet-img {
+        scale: 1.2;
+    }
+}
+
+/* -------------------------------- FOR TABLET -------------------------------- 
+                                (To smooth scale)                               */
+@media screen and (min-width: 787px) and (max-width: 865px) {
+
+    /* Main row */
+    .list-form-and-view {
+        grid-template-columns: repeat(auto-fit, minmax(auto, 360px));
+        grid-gap: 14px;
+    }
+
+    /* ----- Each ITEM settings ----- */
+    .list-form-and-view :is(#wallets-list, #cards-list, #savings-list) {
+        height: 300px;
+        width: 360px;
+        max-width: 360px;
+        min-width: 360px;
+    }
+
+    /* wallet item */
+    .list-form-and-view #wallets-list {
+        padding: 24px 12px 8px 12px;
+    }
+
+    /* card item */
+    .list-form-and-view #cards-list {
+        height: 280px;
+    }
+
+
+    /* ----- Each item IMAGE settings ----- */
+    /* wallet image */
+    #wallets-list .ewallet-img {
+        scale: 1.15;
+    }
+
+    /* credit card image */
+    #cards-list .ewallet-img {
+        scale: 1.05;
+    }
+
+    /* saving image */
+    #savings-list .ewallet-img {
+        scale: 1.12;
+    }
+}

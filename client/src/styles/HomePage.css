@@ -1,0 +1,1409 @@
+/* ----- STYLING OF HOME (CLIENT) PAGE ----- */
+
+.client-page-wrapper {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.client-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 340px;
+    padding: 0;
+}
+
+/* Columns of Cards, Wallets, Savings */
+.cards-column,
+.wallets-column,
+.savings-column {
+    border: var(--item-border);
+    background: var(--item-background);
+    border-radius: var(--item-border-radius);
+    color: var(--item-color);
+    text-shadow: var(--item-text-shadow);
+    box-shadow: var(--item-box-shadow);
+    max-width: 400px;
+}
+
+
+/* -----
+Overall Balance
+----- */
+
+/* Font and Color settings */
+.client-balance,
+:is(.dropdown-balance, .item-currency) .dropdown-toggle,
+:is(.dropdown-balance, .item-currency) .dropdown-menu a {
+    font-family: var(--font-montserrat);
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.85);
+    text-transform: uppercase;
+    white-space: nowrap;
+    word-spacing: 2px;
+    white-space: nowrap;
+}
+
+/* Balance row */
+.client-balance {
+    background: rgba(66, 64, 51, 0.7);
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+
+    height: 38px;
+    margin-bottom: 12px;
+    max-width: 800px;
+    overflow: visible;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Balance Text Description */
+.title-balance {
+    position: relative;
+}
+
+/* Divider line between columns */
+.title-balance::after,
+.expanded-balance span:not(:last-child)::after {
+    content: ' ';
+    position: absolute;
+    top: -2px;
+    right: 0;
+    height: 26px;
+    border-right: var(--item-border);
+    border-width: 2px;
+}
+
+/* Balance amounts */
+.info-balance {
+    padding: 0;
+    cursor: pointer;
+}
+
+/* amounts of money as three columns for middle/large screens */
+.info-balance .expanded-balance {
+    cursor: default;
+}
+
+.info-balance .expanded-balance span {
+    font-size: 18px;
+    letter-spacing: 0.07rem;
+    padding: 0 12px;
+    position: relative;
+    text-align: center;
+}
+
+.dropdown-balance {
+    display: none;
+    cursor: pointer;
+}
+
+/* amounts of money as dropdown for small screens */
+.expanded-balance {
+    display: block;
+}
+
+.dropdown-balance,
+.item-currency {
+    background: transparent;
+    outline: none;
+}
+
+/* Dropdown button */
+:is(.dropdown-balance, .item-currency) .dropdown-toggle {
+    background: transparent;
+    border: none;
+    position: relative;
+    padding-right: 36px;
+}
+
+:is(.dropdown-balance, .item-currency) .dropdown-toggle:active,
+:is(.dropdown-balance, .item-currency) .dropdown-toggle:hover {
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Arrow of the button */
+:is(.dropdown-balance, .item-currency) .dropdown-toggle::after {
+    background-image: url('../images/dropdown-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 13px;
+    height: 13px;
+    border: none;
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    margin: 0;
+}
+
+:is(.dropdown-balance, .item-currency) .dropdown-toggle.show::after {
+    transform: rotate(180deg);
+    top: 7px;
+}
+
+/*  Dropdown options */
+:is(.dropdown-balance, .item-currency) .dropdown-menu {
+    background-color: rgba(66, 64, 51, 0.8);
+}
+
+:is(.dropdown-balance, .item-currency) .dropdown-menu a {
+    text-align: center;
+}
+
+:is(.dropdown-balance, .item-currency) .dropdown-menu a:hover {
+    background-color: rgba(156, 146, 103, 0.75);
+}
+
+
+
+/* -----
+Image Carousel
+----- */
+
+/* Image Size */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.ewallet-img {
+    width: 300px;
+    height: 220px;
+    object-fit: contain;
+}
+
+/* Carousel navigation below image */
+.carousel-indicators {
+    margin-bottom: -4px;
+}
+
+
+/* ----- 
+Redirect Buttons Setting
+----- */
+
+/* Button Itself */
+.button {
+    /* button dimensions */
+    --button-width: 42px;
+    --button-height: 42px;
+
+    position: relative;
+    border: 0;
+    display: inline-block;
+    width: 236px;
+    height: var(--button-height);
+    margin-bottom: 4px;
+    cursor: pointer;
+    outline: none;
+    vertical-align: middle;
+    background: transparent;
+}
+
+.wallets-buttons .button,
+.savings-buttons .button,
+:is(.wallets-column, .savings-column) .edit-this {
+    width: 256px;
+}
+
+/* Button Text Style */
+.button-text {
+    position: absolute;
+    inset: 0;
+    padding: 12px 0;
+    margin-left: 60px;
+    font-family: var(--font-montserrat);
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.85);
+    text-align: left;
+    transition: all 0.4s ease-in-out;
+    text-transform: uppercase;
+    word-spacing: 2px;
+}
+
+/* Button Background Before Hover */
+.button-circle {
+    position: relative;
+    display: block;
+    margin: 0;
+    width: var(--button-width);
+    height: var(--button-height);
+    border-radius: 25px;
+    background: rgba(58, 50, 35);
+    transition: all 0.4s ease-in-out;
+}
+
+/* Button Arrow Before Hover */
+.button-arrow-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--button-width);
+    height: var(--button-height);
+    background: none;
+    transition: all 0.4s ease-in-out;
+}
+
+.button-arrow-icon::before {
+    content: " ";
+    background: url('../images/arrow-right.svg');
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Button Hover Effect changes */
+:is(.edit-this, .add-new, .show-all):hover .button-circle {
+    width: 100%;
+    background: rgba(58, 50, 35, 0.7);
+}
+
+:is(.edit-this, .add-new, .show-all):hover .button-text {
+    margin-left: 76px;
+}
+
+:is(.edit-this, .add-new, .show-all):hover .button-arrow-icon {
+    width: 72px;
+    height: var(--button-height);
+}
+
+:is(.edit-this, .add-new, .show-all):hover .button-arrow-icon::before {
+    background: url('../images/arrow-right-hover.svg');
+    width: 28px;
+    height: 16px;
+    background-size: 28px 16px;
+}
+
+:is(.edit-this, .add-new, .show-all):hover .button-text {
+    color: #fff;
+}
+
+/* Make a redirect button for the edition of the item as disabled if there are no items in a list */
+.edit-this:disabled .button-circle {
+    background: rgba(58, 50, 35, 0.4);
+    z-index: 1;
+}
+
+.edit-this:disabled .button-text {
+    color: rgba(255, 255, 255, 0.4);
+    text-shadow: 1px 1px 1px rgba(58, 50, 35, 0.5);
+}
+
+.edit-this:disabled .button-arrow-icon::before {
+    background: url('../images/arrow-right-disabled.svg');
+    background-size: 16px 16px;
+}
+
+/* -----
+Item's Details Table Setting
+----- */
+
+/* Table Grid */
+.item-total-amount {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+        'title title'
+        'type currency'
+        'qtyText qtyAmount'
+        'totalText totalAmount'
+    ;
+    row-gap: 4px;
+    padding: 0 12px;
+    margin: 0;
+    width: auto;
+}
+
+.item-total-amount span {
+    font-size: 18px;
+    padding: 0 12px;
+    background-color: rgba(58, 50, 35, 0.3);
+}
+
+/* Border-radius for left-top angle of 1st colomn */
+.item-total-amount span:nth-child(-n+4) {
+    border-top-left-radius: 12px;
+}
+
+/* Borders for left-top angle of 2nd colomn */
+.item-total-amount span:nth-child(n+5),
+.item-total-amount .item-currency {
+    font-size: 20px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Table header */
+.table-title {
+    grid-area: title;
+    font-family: var(--font-montserrat);
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    margin: 0;
+    margin-left: 12px;
+    padding: 0;
+    padding-right: 40%;
+    border-bottom: var(--item-border);
+    border-width: 2px;
+    position: relative;
+}
+
+/* Divider line between table columns */
+.table-title::after {
+    content: ' ';
+    position: absolute;
+    top: 14px;
+    left: calc((100% + 12px)*0.6 - 12px);
+    height: calc(12px + 30px*3 + 4px*4 + 8px);
+    border-right: var(--item-border);
+}
+
+.item-type {
+    grid-area: type;
+}
+
+.qty-text {
+    grid-area: qtyText;
+}
+
+.items-qty {
+    grid-area: qtyNumber;
+}
+
+.item-total-amount .total-text {
+    grid-area: totalText;
+}
+
+.total-amount {
+    grid-area: totalAmount;
+}
+
+.item-currency {
+    grid-area: currency;
+    background: none;
+    background-color: rgba(58, 50, 35, 0.3);
+    outline: none;
+    display: block;
+    height: 30px;
+}
+
+.item-currency .dropdown-toggle,
+.item-currency .dropdown-menu a {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: "Barlow Condensed", sans-serif;
+    line-height: 20px;
+}
+
+.item-currency.dropdown button {
+    padding-bottom: 10px;
+    padding-top: 2px;
+}
+
+/* ----- Dropdown button for Table currency ----- */
+.item-currency .dropdown-toggle {
+    background: transparent;
+    border: none;
+    position: relative;
+    padding-right: 36px;
+}
+
+.item-currency .dropdown-toggle:active,
+.item-currency .dropdown-toggle:hover {
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.item-currency .dropdown-menu {
+    background-color: rgba(66, 64, 51);
+}
+
+/* arrow to open currency dropdown */
+:is(.cards-details,
+    .wallets-details,
+    .savings-details) .item-currency .dropdown-toggle::after {
+    top: 10px;
+    right: 16px;
+}
+
+/* arrow to close currency dropdown */
+.item-currency .dropdown-toggle.show::after {
+    top: 2px;
+}
+
+/* add break to divide selected currency and hovered one */
+.item-currency .dropdown-item:not(:last-child) {
+    margin-bottom: 1px;
+}
+
+.item-currency .dropdown-item:hover {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* selected currency in dropdown list */
+.item-currency .active {
+    background-color: rgba(156, 146, 103, 0.75);
+}
+
+/* Item Radio Button for Modile Naviagation */
+.items-radio-buttons {
+    display: none;
+}
+
+
+/* -----
+Credit Card View
+----- */
+
+/* Credit cards image grid */
+.cards.ewallet-img {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 20% 30% 10% 20% 20%;
+    grid-template-areas: 'bank bank bank pay-net'
+        'chip money money money'
+        'type money money money'
+        'number number number number'
+        'holder holder holder data'
+    ;
+    background: url(../images/card-front-green.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 24px 14px 24px 14px;
+
+    height: 220px;
+    border-radius: 16px;
+}
+
+.cards p,
+.cards span {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.9);
+}
+
+.cards .bank-view {
+    grid-area: bank;
+    text-align: start;
+    margin-top: 4px;
+    text-transform: capitalize;
+    position: relative;
+}
+
+.cards .payment-network-view {
+    grid-area: pay-net;
+    margin-left: 10px;
+}
+
+.cards .payment-network-view img {
+    margin-top: 8px;
+    height: 35px;
+}
+
+.cards .chip-view {
+    grid-area: chip;
+}
+
+.cards .money-view {
+    grid-area: money;
+    text-align: right;
+}
+
+.cards .money-view p {
+    font-size: 26px;
+    letter-spacing: 0.04em;
+    text-shadow: 1px 1px 3px #EED288;
+    white-space: nowrap;
+}
+
+.cards .type-view {
+    grid-area: type;
+    margin: auto;
+}
+
+.cards .type-view p {
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 700;
+}
+
+.cards .number-view {
+    grid-area: number;
+    align-items: center;
+}
+
+.cards .number-view p {
+    letter-spacing: 0.04em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cards .number-view span {
+    font-size: 26px;
+}
+
+.cards .number-view :is(span:first-child, span:last-child) {
+    cursor: default !important;
+}
+
+.cards .holder-view {
+    grid-area: holder;
+    text-transform: uppercase;
+    position: relative;
+    text-align: left;
+    letter-spacing: 0.04em;
+    word-spacing: 2px;
+    margin-top: auto;
+}
+
+.cards .date-view {
+    grid-area: data;
+    text-align: right;
+    position: relative;
+    margin-top: auto;
+}
+
+.cards .holder-view::before,
+.cards .date-view::before {
+    text-transform: uppercase;
+    position: absolute;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.07rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 1px 1px 4px rgba(15, 15, 15, 0.9);
+}
+
+.cards .holder-view::before {
+    content: "Card Holder";
+    top: -10px;
+    left: 0;
+}
+
+.cards .date-view::before {
+    content: "Expires";
+    top: -10px;
+    right: 0;
+}
+
+
+/* ----- 
+Wallet View 
+----- */
+
+/* Wallet image grid */
+.wallets.ewallet-img {
+    display: grid;
+    grid-template-columns: 18% 32% 36% 7%;
+    grid-template-rows: 28% 41% 15% 16%;
+    grid-template-areas:
+        '.  .        .      .'
+        '.  money   money   .'
+        '.  .       name    .'
+        '.  .       .       .';
+    background: url(../images/wallet.png) no-repeat center;
+    background-size: contain;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto;
+    padding: 0px 24px 0px 20px;
+}
+
+.wallets p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Wallet Front Divs */
+.wallets .money-view {
+    grid-area: money;
+    text-align: right;
+    /* height: 40%; */
+    align-self: flex-start;
+    text-align: left;
+    padding-top: auto;
+    position: relative;
+}
+
+.wallets .name-view {
+    grid-area: name;
+    text-transform: uppercase;
+    position: relative;
+    align-self: flex-start;
+    text-align: left;
+    height: 100%;
+
+}
+
+/* Wallet Divs Content */
+/* Labels */
+.wallets :is(.name-above-view, .name-full-view,
+    .money-above-view) {
+    text-transform: uppercase;
+    letter-spacing: 0.07rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 1px 1px 4px rgba(15, 15, 15, 0.9);
+}
+
+/* Name paragraph */
+.wallets .name-view p#name-view {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    line-height: 18px;
+    font-size: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow-y: hidden;
+}
+
+.wallets .name-view .name-above-view {
+    position: absolute;
+    top: -12px;
+    left: 0px;
+    font-size: 10px;
+}
+
+.wallets .name-view .name-full-view {
+    font-size: 14px;
+    padding-left: 4px;
+}
+
+/* Money paragraph */
+.wallets .money-view p#money-view {
+    font-size: 26px;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 2px #eed288;
+    margin-top: 4px;
+}
+
+.wallets .money-view .money-above-view {
+    position: absolute;
+    top: -2px;
+    left: 0px;
+    font-size: 10px;
+}
+
+
+
+/* -----
+Saving View 
+----- */
+
+/* Saving image grid */
+.savings.ewallet-img {
+    display: grid;
+    grid-template-columns: 14% 55% 36%;
+    grid-template-rows: 35% 15% 15% 15% 20%;
+    grid-template-areas:
+        '.      .           .'
+        '.      money       .'
+        '.      progress    .'
+        '.      name        .'
+        '.      .           .';
+    background: url(../images/saving_bag.png) no-repeat center;
+    background-size: contain;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Saving Front Divs */
+.savings div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.savings .money-target-view {
+    grid-area: money;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: relative;
+}
+
+.savings .progress-view {
+    grid-area: progress;
+    display: block;
+    align-self: start;
+    width: 100%;
+    height: 14px;
+    margin-top: 8px;
+    position: relative;
+}
+
+.savings .name-view {
+    grid-area: name;
+    position: relative;
+    align-items: flex-start;
+    margin-right: 30px;
+}
+
+/* Saving Divs Content */
+/* Labels */
+.savings :is(.name-above-view, .name-full-view,
+    .money-target-above-view, .progress-above-view) {
+    text-transform: uppercase;
+    letter-spacing: 0.07rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 1px 1px 4px rgba(15, 15, 15, 0.9), 1px 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.savings :is(.name-above-view,
+    .money-target-above-view, .progress-above-view) {
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9), 1px 1px 4px rgba(0, 0, 0, 0.9);
+    font-size: 10px;
+}
+
+/* Name paragraph */
+.savings .name-view p#name-view {
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 16px;
+    font-size: 16px;
+    overflow: hidden;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 14px;
+}
+
+.savings .name-above-view {
+    position: absolute;
+    top: 0px;
+    left: 0;
+}
+
+.savings .name-full-view {
+    font-size: 14px;
+    margin: 0;
+    margin-top: 4px;
+}
+
+/* Progress paragraph */
+.progress-bar-striped {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%,
+            transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%,
+            rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-size: var(--bs-progress-height) var(--bs-progress-height);
+}
+
+.progress-bar {
+    background-color: rgb(79, 179, 117);
+}
+
+.progress,
+.progress-stacked {
+    font-family: var(--font-montserrat);
+    line-height: 0.875rem;
+    font-weight: 700;
+    --bs-progress-font-size: 0.7rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+    --bs-progress-bg: rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 1px 2px rgba(15, 15, 15, 0.7);
+}
+
+.progress-label {
+    position: absolute;
+    top: 0;
+    left: 33%;
+    color: rgba(139, 138, 138, 0.7);
+    font-size: 0.7rem;
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    line-height: 0.875rem;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.9);
+}
+
+/* Money paragraph */
+.savings .money-target-view p#money-view {
+    width: 100%;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+    margin: 0;
+    margin-top: 6px;
+    text-align: left;
+}
+
+.savings .money-target-above-view {
+    position: absolute;
+    top: -7px;
+    left: 0px;
+}
+
+
+/* --------------------------------------- For LAPTOPS --------------------------------------- */
+.client-page {
+    align-items: center;
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+
+.client-page-content {
+    width: 100%;
+    max-width: 1460px;
+    height: 560px;
+    margin: 0;
+    padding: 0;
+    column-gap: 20px;
+    justify-content: space-between;
+}
+
+button {
+    white-space: nowrap;
+}
+
+.cards-column,
+.wallets-column,
+.savings-column {
+    padding: 16px 12px;
+    text-align: center;
+}
+
+.cards-column>div,
+.wallets-column>div,
+.savings-column>div {
+    margin-bottom: 12px;
+}
+
+
+/* --------------------------------------- For TABLETS --------------------------------------- */
+@media screen and (min-width: 787px) and (max-width: 1300px) {
+
+    /* Arrangement of Items as Card Pyramid */
+    .client-page-content {
+        position: relative;
+        width: 400px;
+        padding: 0;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+    }
+
+    #client-main-row :is(.wallets-column, .savings-column, .cards-column) {
+        position: absolute;
+        width: 100%;
+        margin: 0;
+        transition: transform 700ms ease;
+    }
+
+    /* Center Item Cards are not clickable */
+    :is(.wallets-column, .savings-column, .cards-column).show-center {
+        cursor: auto !important;
+    }
+
+    /* and visible */
+    .show-center {
+        transform: translate3d(0%, 0, 0px);
+        background: linear-gradient(to left, rgba(156, 146, 103),
+                rgba(66, 64, 51));
+    }
+
+    /* Back Item Cards are half-hidden */
+    .show-left {
+        transform: translate3d(-50%, 0, -100px);
+        cursor: pointer;
+    }
+
+    .show-right {
+        transform: translate3d(50%, 0, -100px);
+        cursor: pointer;
+    }
+
+    /* Forbid to click any buttons on the back Item Cards */
+    :is(.show-left, .show-right) *,
+    :is(.show-left, .show-right)>* {
+        pointer-events: none !important;
+    }
+}
+
+/* All Item Cards exist if move from Modile screen to Tablets */
+@media screen and (min-width: 787px) {
+    #client-page-content~div {
+        display: block;
+    }
+}
+
+
+/* --------------------------------------- For MOBILE --------------------------------------- */
+@media screen and (max-width: 786px) {
+    .client-page-content {
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+        height: 524px;
+        max-width: 424px;
+    }
+
+    .cards-column>div,
+    .wallets-column>div,
+    .savings-column>div {
+        margin-bottom: 8px;
+        padding: 0;
+    }
+
+    .cards-column,
+    .wallets-column,
+    .savings-column {
+        max-width: 400px;
+    }
+
+    /* ----- Overall Balance Dropdown ----- */
+    .client-balance,
+    .dropdown-balance .dropdown-toggle,
+    .dropdown-balance .dropdown-menu a {
+        font-size: clamp(12px, 2.4vw, 16px);
+        font-weight: 700;
+        word-spacing: 1.5px;
+    }
+
+    .dropdown-balance .dropdown-toggle,
+    .dropdown-balance .dropdown-menu a {
+        font-size: clamp(14px, 2.6vw, 16px);
+    }
+
+    .dropdown-balance.dropdown button {
+        letter-spacing: 0.07rem;
+    }
+
+    /*  Balance row  */
+    .client-balance {
+        margin: 0;
+        height: 32px;
+    }
+
+    /* Divider line between columns */
+    .title-balance::after {
+        top: -3px;
+        height: 24px;
+    }
+
+    /* Visibility of dropdown */
+    .dropdown-balance {
+        display: block;
+    }
+
+    .expanded-balance {
+        display: none;
+    }
+
+    /* Hide all Item Cards, and show only one that the user chose */
+    .display-none {
+        display: none;
+        height: 0;
+    }
+
+    .display-block {
+        display: block;
+        animation: fadeIn 0.5s ease-in;
+    }
+
+    /* Animation between changing items */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* ----- Navigation below Item Cards for Mobile devices ----- */
+    .items-radio-buttons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 30px;
+        min-width: 320px;
+        max-width: 400px;
+        position: relative;
+    }
+
+    .items-radio-buttons span {
+        display: flex;
+        width: auto;
+        gap: 8px;
+    }
+
+    /* Dots (radio buttons) for visual navigation */
+    .items-radio-buttons .radios {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0;
+        pointer-events: none;
+    }
+
+    .items-radio-buttons span div,
+    .items-radio-buttons span input {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        width: 10px;
+        height: 10px;
+    }
+
+    .items-radio-buttons span div {
+        width: 30px;
+        height: 30px;
+        display: grid;
+        place-items: center;
+    }
+
+    /* Styling of Bootstrap Radio Buttons default classes*/
+    .items-radio-buttons .form-check-input {
+        background: linear-gradient(rgba(182, 174, 140), white, rgba(182, 174, 140));
+        border: none;
+        transition: all .2s ease;
+        cursor: default;
+        position: relative;
+    }
+
+    .items-radio-buttons :is(.form-check-input:active, .form-check-input:focus, .form-check-input:checked) {
+        transform: scale(1.4);
+        outline: none;
+        box-shadow: none;
+        filter: none;
+    }
+
+    .items-radio-buttons :is(.form-check-input:active,
+        .form-check-input:focus, .form-check-input:checked):after {
+        content: "";
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 2px solid rgba(85, 83, 83, 0.75);
+    }
+
+
+    /* Navigation Words to choose Item */
+    .items-radio-buttons .arrow-previous,
+    .items-radio-buttons .arrow-next {
+        width: auto;
+        text-transform: uppercase;
+        font-family: var(--font-montserrat);
+        color: rgba(255, 255, 255, 0.75);
+        text-shadow: 1px 1px 1px rgb(0 0 0 / 85%);
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .items-radio-buttons .arrow-previous {
+        padding-left: 20px;
+    }
+
+    /* If item is showing, hide its navigation word */
+    .arrow-previous.hidden,
+    .arrow-next.hidden {
+        visibility: hidden;
+    }
+
+    .arrow-previous.visible,
+    .arrow-next.visible {
+        visibility: visible;
+    }
+
+    /* Arrow icons for Navigation Words */
+    .items-radio-buttons .arrow-next {
+        padding-right: 20px;
+    }
+
+    .arrow-previous::after,
+    .arrow-next::after {
+        content: "";
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 12px;
+        width: 12px;
+        position: absolute;
+        top: 5px;
+    }
+
+    .arrow-next::after {
+        background-image: url("../images/arrow-navigation.svg");
+        right: -1px;
+    }
+
+    .arrow-previous::after {
+        background-image: url("../images/arrow-navigation.svg");
+        transform: rotate(180deg);
+        left: -1px;
+    }
+
+    /* ----- Redirect Buttons Setting ----- */
+    /* Button Itself */
+    .button {
+        /* button dimensions */
+        --button-width-mobile: 36px;
+        --button-height-mobile: 36px;
+        width: 220px;
+        height: var(--button-height-mobile);
+    }
+
+    .wallets-buttons .button,
+    .wallets-column .edit-this {
+        width: 240px;
+    }
+
+    .savings-buttons .button,
+    .savings-column .edit-this {
+        width: 232px;
+    }
+
+    /* Button Text Style */
+    .button-text {
+        padding: 10px 0;
+        margin-left: 56px;
+        font-family: var(--font-montserrat);
+        font-size: 13px;
+    }
+
+    /* Button Background Before Hover */
+    .button-circle {
+        width: var(--button-width-mobile);
+        height: var(--button-height-mobile);
+        border-radius: 22px;
+    }
+
+    /* Button Arrow Before Hover */
+    .button-arrow-icon {
+        width: var(--button-width-mobile);
+        height: var(--button-height-mobile);
+    }
+
+    /* Button Hover Effect changes */
+    .button:hover .button-text {
+        margin-left: 68px;
+    }
+
+    .button:hover .button-arrow-icon {
+        width: 68px;
+        height: var(--button-height-mobile);
+    }
+
+    .button:hover .button-arrow-icon::before {
+        background: url('../images/arrow-right-hover.svg');
+        width: 24px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .button:hover .button-text {
+        color: #fff;
+    }
+
+    /* ----- Item's Details Table Setting ----- */
+    #client-main-row .item-total-amount {
+        margin-bottom: 0;
+    }
+
+    .item-total-amount span {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    /* Font-size for 2nd colomn */
+    .item-total-amount span:nth-child(n+5) {
+        font-size: 18px;
+    }
+
+    /* Table header */
+    .table-title {
+        font-size: 16px;
+    }
+
+    /* Divider line between table columns */
+    .table-title::after {
+        top: 14px;
+        height: calc(10px + 28px*3 + 4px*4 + 6px);
+    }
+
+    /* ----- Image Carousel ----- */
+    /* Image Size */
+    .ewallet-img {
+        width: 270px;
+        height: 200px;
+    }
+
+    /* Image's div */
+    .carousel {
+        margin: 0;
+    }
+
+    /* Carousel side arrows for navigation */
+    .carousel-control-next,
+    .carousel-control-prev {
+        width: auto;
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        width: 28px;
+    }
+
+    /* ----- Credit Cards View ----- */
+    /* Credit cards image Grid */
+    .cards.ewallet-img {
+        padding: 20px 12px 22px 12px;
+        height: 200px;
+    }
+
+    /* Images Visa and Mastercard */
+    .cards .payment-network-view img {
+        margin-top: 8px;
+        height: 32px;
+    }
+
+    /* Amount of money */
+    .cards .money-view p {
+        font-size: 24px;
+        letter-spacing: 0.03em;
+    }
+
+    /* Card number */
+    .cards .number-view span {
+        font-size: 24px;
+    }
+
+
+    /* ----- Wallets Cards View ----- */
+    /* Labels */
+    .wallets :is(.name-above-view, .name-full-view,
+        .money-above-view) {
+        letter-spacing: 0.05rem;
+    }
+
+    /* Name paragraph */
+    .wallets .name-view p#name-view {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        line-height: 18px;
+        font-size: 16px;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        margin-top: 4px;
+        margin-left: 2px;
+    }
+
+    .wallets .name-view .name-above-view {
+        position: absolute;
+        top: -8px;
+        left: 3px;
+        font-size: 10px;
+    }
+
+    .wallets .name-view .name-full-view {
+        font-size: 13px;
+    }
+
+    /* Money paragraph */
+    .wallets .money-view p#money-view {
+        font-size: 24px;
+        line-height: 44px;
+        letter-spacing: 0.04em;
+        text-shadow: 0 0 2px #eed288;
+        margin-top: 0;
+    }
+
+    .wallets .money-view .money-above-view {
+        top: -2px;
+    }
+
+    /* ----- Savings Cards View ----- */
+    /* Name paragraph */
+    .savings .name-view p#name-view {
+        line-height: 16px;
+        font-size: 16px;
+        margin: 0;
+        margin-top: 14px;
+    }
+
+    .savings .name-above-view {
+        top: 1px;
+    }
+
+    .savings .name-full-view {
+        font-size: 14px;
+        margin: 0;
+        margin-top: 4px;
+    }
+
+    /* Progress paragraph */
+    .progress,
+    .progress-stacked {
+        --bs-progress-font-size: 0.65rem;
+    }
+
+    .progress-label {
+        font-size: 0.65rem;
+    }
+
+    /* Money paragraph */
+    .savings .progress-view p#money-target-view {
+        font-size: 18px;
+        line-height: 18px;
+        letter-spacing: 0.05em;
+        margin: 0;
+    }
+
+    .savings .money-target-view p#money-view {
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: 0.04em;
+        margin-top: 4px;
+    }
+
+    .savings .money-target-above-view {
+        position: absolute;
+        top: -8px;
+        left: 0px;
+    }
+}

@@ -1,0 +1,52 @@
+/* -----  BREADCRUMB STYLING  ----- */
+
+/* main div */
+.breadcrumb-nav {
+    position: absolute;
+    top: calc(58px + 4px);
+    left: 0px;
+    text-align: center;
+}
+
+/* each item in a list */
+li.breadcrumb-item {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0 12px !important;
+    clip-path: inset(0 0 0 0 round -0 5px 5px 0);
+
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+/* remove bootstrap default styles */
+li.breadcrumb-item::before {
+    content: '' !important;
+    padding: 0;
+}
+
+.breadcrumb-item+.breadcrumb-item {
+    padding-right: 12px;
+}
+
+li.breadcrumb-item a,
+li.breadcrumb-item::before,
+li.breadcrumb-item.active {
+    color: var(--item-color) !important;
+    text-shadow: var(--item-text-shadow);
+}
+
+/* first link - home page */
+li.breadcrumb-item:first-child {
+    padding-left: 32px !important;
+}
+
+/* put items over each other */
+li.breadcrumb-item:not(:first-child) {
+    margin-left: -8px;
+}
+
+/* not highlight last Link (it's the current page) */
+li.breadcrumb-item:last-child a {
+    text-decoration: none;
+}

@@ -1,0 +1,154 @@
+/* ----- STYLING OF ERROR PAGES  ----- */
+
+/* ---- 
+Error pages position
+---- */
+.server-error,
+.page-not-found {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 12px;
+    display: grid;
+    place-items: center center;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    background: rgb(70, 68, 53);
+    background: linear-gradient(90deg, rgba(70, 68, 53, 1) 0%,
+            rgba(110, 104, 76, 0.8071603641456583) 43%, rgba(153, 143, 101, 1) 100%);
+}
+
+/* ---- 
+Error pages content container
+---- */
+:is(.server-error, .page-not-found) section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* ---- 
+Error image
+---- */
+img.error-img {
+    width: clamp(340px, 62vw, 800px);
+}
+
+/* ---- 
+Error pages redirect buttons (GO HOME)
+---- */
+:is(.page-not-found, .server-error) a {
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    word-spacing: 2px;
+    position: relative;
+    background-color: #6E5821;
+    border-radius: 5px;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: var(--item-box-shadow);
+}
+
+:is(.page-not-found, .server-error) a :is(span, img) {
+    transition: all 0.4s;
+}
+
+/* button text */
+:is(.page-not-found, .server-error) a span {
+    font-weight: 700;
+    font-size: clamp(14px, 2.55vw, 22px);
+    line-height: clamp(16px, 3.15vw, 26px);
+    font-family: var(--font-montserrat);
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.85);
+    position: relative;
+    left: 0;
+}
+
+/* button image */
+:is(.page-not-found, .server-error) a img {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 50%;
+    left: -40%;
+    transform: translate(0, -50%);
+}
+
+/*  hover button */
+:is(.page-not-found, .server-error) a:hover span {
+    left: 150px;
+}
+
+:is(.page-not-found, .server-error) a:hover img {
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ---- 
+Error text
+---- */
+.error-text {
+    margin: 40px 0;
+    min-width: 320px;
+}
+
+/* message */
+.error-text p {
+    margin: 0;
+    font-weight: 700;
+    line-height: 22px;
+    font-size: clamp(12px, 2.25vw, 18px);
+    font-family: var(--font-montserrat);
+    color: rgba(255, 255, 255);
+    text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.85);
+    word-spacing: 1px;
+    /* color: rgba(54, 54, 54, 0.85);
+    text-shadow: 1px 1px 1px rgba(173, 173, 173, 0.85); */
+}
+
+.error-text p:first-child {
+    margin-bottom: 8px;
+}
+
+
+/* ---- 
+Hide navbar, modal window and layout background if error exists and 
+---- */
+body:has(.server-error,
+    .page-not-found) :is(.navbar, .modal, .modal-backdrop) {
+    opacity: 0 !important;
+    z-index: -1;
+}
+
+body:has(.server-error,
+    .page-not-found) .layout {
+    background-image: none;
+}
+
+
+/* -------------------------------- FOR MOBILE / TABLET -------------------------------- */
+@media screen and (max-width: 650px) {
+
+    /* error text */
+    .error-text {
+        margin: 24px 0;
+    }
+
+    .error-text p:first-child {
+        margin-bottom: 4px;
+    }
+
+    /* button image */
+    :is(.page-not-found, .server-error) a img {
+        width: 22px;
+        height: 22px;
+    }
+}

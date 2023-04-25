@@ -1,0 +1,12 @@
+{
+    "name": "e_wallet",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "cd server && npm install && cd ../client && npm install && npm run build",
+        "start": "cd server && npm run start:app"
+    },
+    "author": "",
+    "license": "ISC"
+}

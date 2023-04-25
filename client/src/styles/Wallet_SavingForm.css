@@ -1,0 +1,786 @@
+/* ----- STYLING OF WALLET / SAVING FORM  ----- */
+
+.form-wrapper {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* ----- 
+Page grid: for form block and card view block 
+----- */
+.wallet-form-and-view,
+.saving-form-and-view {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    column-gap: 40px;
+    row-gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 340px;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .wallet-form-and-view,
+    .saving-form-and-view {
+        flex-direction: column;
+    }
+}
+
+/* Star near required inputs  */
+.form-inputs div div label {
+    position: relative;
+}
+
+.wallet-create-form label,
+.saving-create-form label {
+    word-spacing: 0.3rem;
+}
+
+:is(.wallet-name, .saving-name, .wallet-money,
+    .saving-money, .saving-money-target) label::before {
+    content: "*";
+    position: absolute;
+    top: 0;
+    right: -16px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--font-montserrat);
+    color: rgba(255, 1, 1, 0.75);
+}
+
+
+/* ----- 
+Form
+----- */
+.wallet-create-form,
+.saving-create-form {
+    border: var(--item-border);
+    background: var(--item-background);
+    border-radius: 12px;
+    max-width: 400px;
+    padding: 20px;
+    padding-top: 10px;
+    color: var(--item-color);
+    text-shadow: var(--item-text-shadow);
+    box-shadow: var(--item-box-shadow);
+    margin: 0 auto;
+}
+
+:is(.wallet-create-form,
+    .saving-create-form) h1 {
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    font-size: 28px;
+    text-align: left;
+    line-height: 54px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    word-spacing: 0.4rem;
+}
+
+
+/* -----
+Item View Styling
+----- */
+.wallet-view,
+.saving-view {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.85);
+    align-items: center;
+    justify-content: center;
+}
+
+/* Front Side Grid */
+.wallet-front-view,
+.saving-front-view {
+    border-radius: 16px;
+}
+
+.wallet-front-view p,
+.saving-front-view p {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* -----
+Submit, Edit and Delete Buttons 
+----- */
+.wallet-form-submit,
+.saving-form-submit {
+    display: flex;
+    align-items: flex-end;
+}
+
+:is(.wallet-form-submit, .saving-form-submit) input,
+:is(.wallet-form-delete.btn, .saving-form-delete.btn) {
+    height: 50px;
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    font-size: 28px;
+    background: linear-gradient(to left,
+            var(--button-background-ochre) 50%, var(--button-background-green) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.85);
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    transition: all 0.5s ease;
+}
+
+:is(.wallet-form-submit, .saving-form-submit) input:not(:disabled):hover {
+    box-shadow: 0px 0px 4px 4px rgba(66, 64, 51, 0.8);
+    background-position: left bottom;
+}
+
+:is(.wallet-form-submit, .saving-form-submit) input:disabled {
+    background-color: rgb(50, 50, 50);
+}
+
+:is(.wallet-form-submit, .saving-form-submit) input:not(:disabled):active {
+    background-color: rgba(69, 100, 81, 0.7);
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.85);
+    box-shadow: none;
+    border: 1px solid rgba(120, 221, 159);
+}
+
+/* Don't highlight submit button after Submitting the Form */
+:is(.wallet-form-submit, .saving-form-submit) .form-control:focus {
+    color: rgba(255, 255, 255, 0.85);
+    background-color: var(--button-background-ochre);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    outline: 0;
+    box-shadow: none;
+}
+
+/* delete button */
+.wallet-form-delete.btn,
+.saving-form-delete.btn {
+    margin-left: 8px;
+    width: 35%;
+    background: rgb(96, 96, 96, 0.4);
+    font-size: 22px;
+    position: relative;
+    transition: all 0.7s ease;
+    letter-spacing: 0.05rem;
+}
+
+:is(.wallet-form-delete.btn, .saving-form-delete.btn) .delete-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    width: 24px;
+}
+
+:is(.wallet-form-delete.btn, .saving-form-delete.btn):hover {
+    background: none;
+    background-color: rgb(96, 96, 96, 0.5);
+    color: transparent;
+    text-shadow: none;
+    box-shadow: 0px 0px 4px 4px rgba(66, 64, 51, 0.5);
+}
+
+:is(.wallet-form-delete.btn, .saving-form-delete.btn):active {
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: none;
+}
+
+:is(.wallet-form-delete.btn, .saving-form-delete.btn):active .delete-icon {
+    scale: 1.05;
+}
+
+:is(.wallet-form-delete.btn, .saving-form-delete.btn):hover .delete-icon {
+    display: block;
+}
+
+/* font sizes for TABLETSs */
+@media screen and (min-width: 561px) and (max-width: 992px) {
+
+    .wallet-create-form .form-inputs input,
+    .wallet-create-form .form-inputs select {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .form-inputs .wallet-form-submit input {
+        font-size: 28px;
+    }
+
+    .wallet-create-form .form-group-div>label {
+        font-size: 18px;
+    }
+
+    .wallet-create-form .form-inputs input::placeholder {
+        font-size: 24px;
+    }
+}
+
+
+/* -----
+WALLET PARAMETRS
+----- */
+/* Grid Area for Form Inputs and Buttons */
+.wallet-create-form .form-inputs {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 85px) 70px;
+    grid-template-areas:
+        'name'
+        'currency'
+        'money'
+        'submit'
+    ;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.wallet-name {
+    grid-area: name;
+}
+
+.wallet-currency {
+    grid-area: currency;
+}
+
+.wallet-money {
+    grid-area: money;
+}
+
+.wallet-form-submit {
+    grid-area: submit;
+}
+
+/* Inputs */
+:is(.wallet-name, .saving-name) input {
+    text-transform: uppercase;
+}
+
+:is(.wallet-name, .saving-name) input::placeholder {
+    letter-spacing: 0.07rem;
+    word-spacing: 0.2rem;
+}
+
+
+/* ----- Wallet View Grid ----- */
+.wallet-front-view {
+    display: grid;
+    grid-template-columns: 18% 32% 36% 7%;
+    grid-template-rows: 30% 39% 15% 16%;
+    grid-template-areas:
+        '.  .        .      .'
+        '.  money   money   .'
+        '.  .       name    .'
+        '.  .       .       .';
+    background: url(../images/wallet.png) no-repeat center;
+    background-size: contain;
+    align-items: center;
+    justify-content: center;
+
+    height: clamp(281px, 83vw, 363px);
+    width: clamp(340px, 95vw, 418px);
+}
+
+/* Wallet View Divs */
+.wallet-front-view .money-view {
+    grid-area: money;
+    text-align: right;
+    height: 40%;
+    align-self: flex-start;
+    text-align: left;
+    padding-top: auto;
+    position: relative;
+}
+
+.wallet-front-view .name-view {
+    grid-area: name;
+    text-transform: uppercase;
+    position: relative;
+    align-self: flex-start;
+    text-align: left;
+    height: 100%;
+
+}
+
+/* ----- Wallet Divs Content ----- */
+/* Labels */
+.wallet-front-view :is(.name-above-view, .name-full-view,
+    .money-above-view, .money-full-view) {
+    text-transform: uppercase;
+    letter-spacing: 0.07rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 1px 1px 4px rgba(15, 15, 15, 0.9);
+    animation: walletLabelsFont 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+
+@keyframes walletLabelsFont {
+    0% {
+        font-size: 24px;
+    }
+
+    100% {
+        font-size: 14px;
+    }
+}
+
+/* Name paragraph */
+.wallet-front-view .name-view p#name-view {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    line-height: 26px;
+    font-size: 22px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow-y: hidden;
+}
+
+.wallet-front-view .name-above-view {
+    position: absolute;
+    top: -16px;
+    left: 0px;
+    font-size: 14px;
+}
+
+.wallet-front-view .name-full-view {
+    font-size: 24px;
+    padding-left: 8px;
+}
+
+/* Money paragraph */
+.money-view p#money-view {
+    font-size: 30px;
+    letter-spacing: 0.05em;
+    margin-top: 8px;
+}
+
+.wallet-front-view .money-full-view {
+    font-size: 24px;
+    padding-left: 20px;
+    padding-top: 8px;
+}
+
+.wallet-front-view .money-above-view {
+    position: absolute;
+    top: -2px;
+    left: 0px;
+    font-size: 14px;
+}
+
+
+/* -----
+SAVING PARAMETRS
+----- */
+
+/* Grid Area for Form Inputs and Buttons */
+.saving-create-form .form-inputs {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, minmax(min-content, auto)) 85px 70px;
+    grid-template-areas:
+        'name'
+        'currency'
+        'money'
+        'target'
+        'submit'
+    ;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+}
+
+.form-inputs div {
+    max-height: 90px;
+}
+
+.saving-name {
+    grid-area: name;
+}
+
+.saving-currency {
+    grid-area: currency;
+}
+
+.saving-money {
+    grid-area: money;
+}
+
+.saving-money-target {
+    grid-area: target;
+}
+
+.saving-form-submit {
+    grid-area: submit;
+}
+
+/* ----- Saving View Grid ----- */
+.saving-front-view {
+    display: grid;
+    grid-template-columns: 10% 59% 36%;
+    grid-template-rows: 31% 21% 14% 12% 22%;
+    grid-template-areas:
+        '.      .           .'
+        '.      money       .'
+        '.      progress    .'
+        '.      name        .'
+        '.      .           .';
+    background: url(../images/saving_bag.png) no-repeat center;
+    background-size: contain;
+    align-items: center;
+    justify-content: center;
+
+    height: 363px;
+    width: 418px;
+}
+
+/* Saving View Divs */
+.saving-front-view div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.saving-front-view .money-target-view {
+    grid-area: money;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: relative;
+}
+
+.saving-front-view .progress-view {
+    grid-area: progress;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+}
+
+.saving-front-view .name-view {
+    grid-area: name;
+    position: relative;
+    align-items: flex-start;
+    margin-right: 50px;
+}
+
+/* ----- Saving Divs Content ----- */
+/* Labels */
+.saving-front-view :is(.name-above-view, .name-full-view,
+    .money-target-above-view, .money-target-full-view,
+    .progress-above-view, .progress-full-view) {
+    text-transform: uppercase;
+    letter-spacing: 0.07rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 1px 1px 4px rgba(15, 15, 15, 0.9), 1px 1px 4px rgba(0, 0, 0, 0.9);
+    animation: savingLabelsFont 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+
+@keyframes savingLabelsFont {
+    0% {
+        font-size: 20px;
+    }
+
+    100% {
+        font-size: 14px;
+    }
+}
+
+.saving-front-view :is(.name-above-view,
+    .money-target-above-view, .progress-above-view) {
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9), 1px 1px 4px rgba(0, 0, 0, 0.9);
+    font-size: 14px;
+}
+
+/* Name paragraph */
+.saving-front-view .name-view p#name-view {
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 24px;
+    font-size: 22px;
+    overflow: hidden;
+    text-transform: uppercase;
+    margin-top: 14px;
+}
+
+.saving-front-view .name-above-view {
+    position: absolute;
+    top: -4px;
+    left: 0;
+}
+
+.saving-front-view .name-full-view {
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+/* Progress paragraph */
+.saving-front-view .progress-above-view {
+    position: absolute;
+    top: 0px;
+    right: 0;
+}
+
+.saving-front-view .progress-full-view {
+    font-size: 22px;
+    padding-bottom: 20px;
+}
+
+.saving-front-view p#progress {
+    font-size: 22px;
+    line-height: 22px;
+    margin-top: 8px;
+}
+
+/* Money paragraph */
+.money-target-view p#money-view {
+    width: 100%;
+    margin-top: 18px;
+}
+
+.money-target-view p#money-target-view {
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+}
+
+.money-target-view p#money-view {
+    font-size: 28px;
+    line-height: 30px;
+    letter-spacing: 0.05em;
+}
+
+.money-target-view span#from {
+    font-size: 20px;
+    line-height: 22px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.saving-front-view .money-target-full-view {
+    margin-top: 16px;
+    font-size: 20px;
+}
+
+.saving-front-view .money-target-above-view {
+    position: absolute;
+    top: 0;
+    left: 0px;
+}
+
+
+/* --------------------------------------- For MOBILE --------------------------------------- */
+@media screen and (max-width: 560px) {
+
+    /* Labels */
+    .form-group-div>label {
+        font-size: 16px
+    }
+
+    /* Inputs */
+
+    .form-inputs :is(input, select) {
+        font-size: 22px;
+        line-height: 24px;
+    }
+
+    /* Submit and Edit button */
+    :is(.wallet-form-submit, .saving-form-submit) input {
+        height: 40px;
+        font-size: 24px;
+        letter-spacing: 0.25rem;
+    }
+
+    /* Delete button */
+    .wallet-form-delete.btn,
+    .saving-form-delete.btn {
+        height: 40px;
+        font-size: 16px;
+        letter-spacing: 0.02em;
+    }
+
+    :is(.wallet-form-delete.btn, .saving-form-delete.btn) .delete-icon {
+        width: 22px;
+    }
+
+    .form-inputs input::placeholder,
+    .item-select-options {
+        letter-spacing: 0.07rem;
+    }
+
+    /* Form */
+    .saving-create-form {
+        max-width: 372px;
+    }
+
+    .wallet-create-form h1,
+    .saving-create-form h1 {
+        font-size: 24px;
+        line-height: 40px;
+        padding-bottom: 4px;
+        margin-bottom: 4px;
+    }
+
+    /* Warning Messages */
+    .form-warnings {
+        font-size: 14px;
+        line-height: 14px;
+        padding: 8px 4px 4px 4px;
+        transform: translateY(-6px);
+        border-radius: 4px;
+        margin: 0;
+    }
+
+    /* ----- WALLET SETTING ----- */
+    /* Grid */
+    .wallet-create-form .form-inputs {
+        grid-template-rows: repeat(2, minmax(min-content, auto)) minmax(81px, 85px) 54px;
+        row-gap: 4px;
+    }
+
+    .money-view p#money-view {
+        font-size: 26px;
+        line-height: 44px;
+    }
+
+    /* ----- Wallet View Grid ----- */
+    /* Name paragraph */
+    .wallet-front-view .name-view p#name-view {
+        line-height: 22px;
+        font-size: 20px;
+    }
+
+    .wallet-front-view .name-full-view {
+        font-size: 20px;
+        padding-left: 6px;
+    }
+
+    .wallet-front-view .name-above-view {
+        font-size: 12px;
+    }
+
+    /* Money paragraph */
+    .money-view p#money-view {
+        font-size: 28px;
+        margin-top: 6px;
+    }
+
+    .wallet-front-view .money-full-view {
+        font-size: 22px;
+        padding-left: 8px;
+        padding-top: 6px;
+    }
+
+
+    /* ----- SAVING SETTING ----- */
+    /* Grid */
+    .saving-create-form .form-inputs {
+        grid-template-rows: repeat(3, minmax(min-content, auto)) 85px 50px;
+        row-gap: 4px;
+    }
+
+    .saving-money {
+        max-height: 85px;
+    }
+
+    .saving-money~p.form-warnings {
+        height: 85px;
+    }
+
+    /* Saving View Grid */
+    .saving-front-view {
+        height: 295px;
+        width: 340px;
+    }
+
+    /* Saving View Divs */
+    .saving-front-view .name-view {
+        margin-right: 40px;
+    }
+
+    /* ----- Saving Divs Content ----- */
+    /* Labels */
+    .saving-front-view :is(.name-above-view, .name-full-view,
+        .money-target-above-view, .money-target-full-view,
+        .progress-above-view, .progress-full-view) {
+        letter-spacing: 0.04rem;
+    }
+
+    .saving-front-view :is(.name-above-view,
+        .money-target-above-view, .progress-above-view) {
+        font-size: 12px;
+    }
+
+    /* Name paragraph */
+    .saving-front-view .name-view p#name-view {
+        line-height: 18px;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .saving-front-view .name-full-view {
+        font-size: 18px;
+        margin-top: 0;
+    }
+
+    .saving-front-view .name-above-view {
+        top: -6px;
+    }
+
+    /* Progress paragraph */
+    .saving-front-view .progress-full-view {
+        font-size: 18px;
+        padding-bottom: 12px;
+    }
+
+    .saving-front-view p#progress {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    /* Money paragraph */
+    .money-target-view p#money-view {
+        margin-top: 15px;
+    }
+
+    .money-target-view p#money-target-view {
+        font-size: 20px;
+        line-height: 22px;
+    }
+
+    .money-target-view p#money-view {
+        font-size: 22px;
+        line-height: 24px;
+    }
+
+    .money-target-view span#from {
+        font-size: 18px;
+        line-height: 22px;
+        margin-right: 8px;
+    }
+
+    .saving-front-view .money-target-full-view {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,52 @@
+/* ----- LAYOUT STYLING  ----- */
+.layout {
+    height: 100vh;
+    padding: 12px;
+    /* ac. to breadcrumb font-size */
+    padding-top: calc(58px + 30px + 8px);
+    overflow: auto;
+    position: relative;
+    vertical-align: middle;
+    background-image: var(--main-background);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.layout:has(.start-page) {
+    overflow: hidden;
+}
+
+.layout:has(.start-page),
+.layout:has(.client-page) {
+    padding: 12px;
+    padding-top: calc(58px + 12px);
+}
+
+.layout:has(.start-page) {
+    background-image: var(--start-page-background) !important;
+}
+
+/* to center the main content vertically */
+.layout:after {
+    content: '';
+    display: inline-block;
+    width: 0px;
+    height: 100%;
+    vertical-align: middle;
+}
+
+/* ----- Change padding ac. to breadcrumb font-size ----- */
+@media screen and (max-width: 650px) {
+    .layout {
+        padding: 10px;
+        padding-top: calc(58px + 24px + 8px);
+    }
+}
+
+@media screen and (min-width: 651px) and (max-width: 750px) {
+    .layout {
+        padding-top: calc(58px + 27px + 8px);
+    }
+}

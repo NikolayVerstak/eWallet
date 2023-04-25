@@ -1,0 +1,105 @@
+/* ----- STYLING OF SING IN PAGE  ----- */
+
+.start-page-wrapper {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.start-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.start-page::-webkit-scrollbar {
+    display: none;
+}
+
+/* -----
+Сircle that sets the movement
+----- */
+.main-circle {
+    /* number of circles */
+    --n: 3;
+    /* duration of animation */
+    --d: 12s;
+    /* diametr of circle */
+    --circle-diam: clamp(200px, 35vw, 290px);
+    /* sninning radius */
+    --spin-rad: clamp(170px, 30vw, 260px);
+
+    width: calc(var(--spin-rad)*2);
+    height: calc(var(--spin-rad)*2);
+    display: grid;
+    grid-template-columns: var(--circle-diam);
+    grid-template-rows: var(--circle-diam);
+    place-content: center;
+    border-radius: 50%;
+    position: relative;
+}
+
+/* Text in the center of the main circle */
+.main-circle::after {
+    content: 'Easy way to keep track of your Finances';
+    text-transform: uppercase;
+    width: clamp(120px, 22vw, 200px);
+    font-weight: 700;
+    letter-spacing: clamp(0.05rem, 0.07rem, 0.1rem);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(14px, 2.5vw, 22px);
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 4px #000000, 0 0 4px #707050, 0 0 4px #4e6444;
+}
+
+
+/* -----
+Сircles (images) that move
+----- */
+.circle-card,
+.circle-wallet,
+.circle-saving {
+    grid-area: 1/1;
+    line-height: var(--circle-diam);
+    text-align: center;
+    margin: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.30);
+    animation: spin var(--d) linear infinite;
+    transform: rotate(0) translate(var(--spin-rad)) rotate(0);
+}
+
+/* ----- Animation Settings ----- */
+@keyframes spin {
+    100% {
+        transform: rotate(1turn) translate(var(--spin-rad)) rotate(-1turn);
+    }
+}
+
+/*.item:nth-child(N) {animation-delay:calc(-(N - 1)*var(--d)/var(--n))}*/
+.circle-card {
+    animation-delay: calc(-0*var(--d)/var(--n))
+}
+
+.circle-wallet {
+    animation-delay: calc(-1*var(--d)/var(--n))
+}
+
+.circle-saving {
+    animation-delay: calc(-2*var(--d)/var(--n))
+}
+
+/* Images Settings */
+.start-page-img {
+    width: 75%;
+    object-fit: contain;
+}
+
+.circle-card img {
+    border-radius: 8px;
+}

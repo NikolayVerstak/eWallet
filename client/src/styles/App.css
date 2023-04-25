@@ -1,0 +1,96 @@
+/* ----- STYLING OF MAIN COMPONENT ----- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Barlow Condensed", sans-serif;
+    min-height: 100vh;
+}
+
+/* ----- 
+Backgroung for all pages
+----- */
+.layout {
+    --main-background: linear-gradient(rgba(156, 153, 141, 0.55),
+            rgba(66, 64, 51, 0.55)),
+        url(../images/background_coins.jpg);
+    --start-page-background: linear-gradient(rgba(156, 153, 141, 0.55),
+            rgba(66, 64, 51, 0.55)),
+        url(../images/start-page-background.jpg);
+}
+
+/* ----- 
+Global Variables 
+----- */
+:root {
+    /* Second Font */
+    --font-montserrat: "Montserrat",
+        sans-serif;
+
+    /* Card's Settings (Card - some bordered and colorize area with one type of content */
+    --item-border: 1px solid rgba(255, 255, 255, 0.55);
+    --item-background: linear-gradient(to left, rgba(156, 146, 103, 0.75),
+            rgba(66, 64, 51, 0.7));
+    --item-border-radius: 12px;
+    --item-color: rgba(255, 255, 255, 0.85);
+    --item-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.85);
+    --item-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.35);
+
+    /* Buttons Settings */
+    --button-background-ochre: rgba(182, 174, 140, 0.7);
+    --button-background-green: rgba(120, 221, 159, 0.7);
+    overflow-y: auto;
+    overflow-x: hidden;
+    cursor: default;
+}
+
+/* ----- 
+Scrollbal
+----- */
+::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+    background-color: transparent;
+    display: block;
+    position: absolute;
+    top: -50rem;
+    right: -3rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    margin-top: 58px;
+}
+
+::-webkit-scrollbar-thumb {
+    /* background-color: rgba(46, 47, 48, 0.6); */
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 100vh;
+    width: 5px;
+    border: 3px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+}
+
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+::-webkit-scrollbar-corner {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    /* background-color: rgba(46, 47, 48, 0.9); */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 100vh;
+}
+
+
+/* --------------------------------------- MOBILE --------------------------------------- */
+@media screen and (max-width: 575px) {
+
+    /* hide scrollbar for small devices */
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}

@@ -9,17 +9,19 @@ import axios from "axios";
 const ExchangeRate = ({ currency }) => {
     // current rate state
     const [rate, setRate] = useState(0);
-    // api key from web sevice https://free.currencyconverterapi.com/
+    // api key from web sevice https://api-ninjas.com/
     const convertKey = process.env.REACT_APP_CURRENCY_CONVERTER_API;
+
     useEffect(() => {
         axios({
             method: "GET",
-            url: `https://free.currconv.com/api/v7/convert?q=${currency}_UAH&compact=ultra&apiKey=${convertKey}`,
+            url: `https://api.api-ninjas.com/v1/convertcurrency?have=${currency}&want=UAH&amount=1`,
+            headers: { "X-Api-Key": convertKey },
+            contentType: "application/json",
         })
             .then((response) => {
                 // value from API
-                const fromTo = `${currency}_UAH`;
-                const apiValue = response.data[fromTo].toFixed(2);
+                const apiValue = response.data.new_amount.toFixed(2);
                 setRate(apiValue);
             })
             .catch((error) => {

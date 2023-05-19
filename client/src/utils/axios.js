@@ -4,9 +4,9 @@ import { store } from "../redux/reducers";
 // define API where a user will make a request to get his data
 export const baseAxios = axios.create({
     // local link
-    // baseURL: "http://localhost:3001/api",
+    baseURL: "http://localhost:3001/api",
     // deployed link
-    baseURL: "https://your-e-wallet-api.onrender.com/api",
+    // baseURL: "https://your-e-wallet-api.onrender.com/api",
 });
 
 // every request will be checked for existing of token

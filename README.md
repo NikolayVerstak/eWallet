@@ -51,7 +51,7 @@ Before the main settings, you should:
 
 1. Create a new web project in Google Cloud Platform [https://console.cloud.google.com/](https://console.cloud.google.com/).
 2. Create a new project with a free cluster in MongoDB Cloud Services [https://www.mongodb.com/cloud](https://www.mongodb.com/cloud).
-3. Get a free API key from Free Currency Converter API [https://free.currencyconverterapi.com/](https://free.currencyconverterapi.com/).
+3. Get a free API key from Ninjas API [https://api-ninjas.com/](https://api-ninjas.com/).
 
 In the "client" directory, you should:
 

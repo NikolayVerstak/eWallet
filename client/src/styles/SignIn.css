@@ -26,9 +26,9 @@
     /* duration of animation */
     --d: 12s;
     /* diametr of circle */
-    --circle-diam: clamp(200px, 35vw, 290px);
+    --circle-diam: clamp(140px, 35vw, 290px);
     /* sninning radius */
-    --spin-rad: clamp(170px, 30vw, 260px);
+    --spin-rad: clamp(130px, 30vw, 260px);
 
     width: calc(var(--spin-rad)*2);
     height: calc(var(--spin-rad)*2);
@@ -46,12 +46,12 @@
     text-transform: uppercase;
     width: clamp(120px, 22vw, 200px);
     font-weight: 700;
-    letter-spacing: clamp(0.05rem, 0.07rem, 0.1rem);
+    letter-spacing: clamp(0.04rem, 0.07rem, 0.1rem);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: clamp(14px, 2.5vw, 22px);
+    font-size: clamp(13px, 2.5vw, 22px);
     text-align: center;
     color: white;
     text-shadow: 3px 3px 4px #000000, 0 0 4px #707050, 0 0 4px #4e6444;

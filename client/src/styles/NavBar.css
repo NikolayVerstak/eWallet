@@ -27,7 +27,7 @@ Buttons Settings
 ----- */
 /* Brand Name */
 .project-name {
-    font-size: 32px;
+    font-size: clamp(28px, 4.3vw, 32px);
     line-height: 32px;
     margin: 0;
     color: white;

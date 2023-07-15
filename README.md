@@ -74,10 +74,8 @@ In the "server" directory, you should:
 
 -   Create an .env file and define the environmental variables
     `PORT=3001`
-    `DB_NAME=eWallet`
-    `DB_USER` (which equals your test user's name for the MongoDB project)
-    `DB_PASSWORD` (which equals your test user's password for the MongoDB project)
-    `CLIENT_ID` (which equals your Client ID of the created Google project)
+    `DB_STRING=mongodb+srv://test-user:<password>@ewallet.3vceijf.mongodb.net/`
+    (which equals your connection string for the MongoDB project)
 
 -   Install the dependencies
 

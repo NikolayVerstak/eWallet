@@ -13,9 +13,7 @@ const app = express();
 // allow to use environment variables from .env-file
 dotenv.config();
 const PORT = process.env.PORT || 3001;
-const DB_USER = process.env.DB_USER;
-const DB_PASSWORD = process.env.DB_PASSWORD;
-const DB_NAME = process.env.DB_NAME;
+const DB_STRING = process.env.DB_STRING;
 
 mongoose.set("strictQuery", true);
 
@@ -36,10 +34,8 @@ app.use("/api/money", checkAuth, itemsRoute); // to allow a user works with his 
 // connect to MongoDB
 async function start() {
     try {
-        await mongoose.connect(
-            // define username/password and databasename of MongoDB
-            `mongodb+srv://${DB_USER}:${DB_PASSWORD}@ewallet.3vceijf.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`
-        );
+        // define string of MongoDB
+        await mongoose.connect(`${DB_STRING}`);
         // running the app
         app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
     } catch (error) {

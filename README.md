@@ -19,7 +19,7 @@ In addition to the core technologies, the following libraries and tools were use
 
 ###### Sing In Page:
 
-<img src="/appearance/sing-in-page.jpeg" alt="sign in"  height="800px">
+<img src="/appearance/sing-in-page.jpeg" alt="sign in"  width="665px">
 
 ###### Home Page (for laptops):
 
@@ -29,7 +29,7 @@ In addition to the core technologies, the following libraries and tools were use
 
 <img src="/appearance/home-page_tablet.jpeg" alt="home page for tablets" width="700px">
 
-###### Home Page (for mobiles devices):
+###### Home Page (for mobile devices):
 
 ![home page for mobiles](/appearance/home-page_mobile.jpeg)
 
